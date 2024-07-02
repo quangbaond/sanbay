@@ -66,7 +66,12 @@ class InvestResource extends Resource
                     0 => 'Chờ xử lý',
                     1 => 'Thành công',
                     2 => 'Hủy bỏ',
-                ]),
+                ])->afterStateUpdated(function ($record, $state) {
+                    if ($state == 1) {
+                        $record->user->balance += $record->amount;
+                        $record->user->save();
+                    }
+                }),
                 Tables\Columns\TextColumn::make('product.name')
                     ->label('Dự án')
                     ->sortable(),
