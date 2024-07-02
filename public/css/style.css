@@ -1,0 +1,118 @@
+body {
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100vh;
+    background-color: #f3f3f3;
+    font-family: 'Montserrat';
+    color: #2d2e30;
+    font-size: 14px;
+}
+#carouselExampleControls{
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #3582B3;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.carousel-inner{
+    border-radius: 10px;
+}
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+.card {
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.notification {
+    background-color: #3582B3;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 10px;
+    display: flex;
+}
+.notification .icon img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+#i{
+    width: 5px;
+    height: 20px;
+    background-color: #3582B3;
+    margin-right: 10px;
+}
+.product_title{
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+}
+.card-title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.card-body h6 {
+    font-weight: 600;
+}
+.infomation{
+    border-radius: 10px;
+    text-align: center;
+    margin: 0;
+}
+.product_item{
+    background: #a2daff;
+    box-shadow: 0 0 0.15rem #a2daff;
+    padding: 5px;
+}
+.progress {
+    height: 0.3rem;
+}
+footer, .action {
+    background-color: #fff;
+    color: #2d2e30;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 500px;
+}
+#main {
+    padding-bottom: 60px;
+}
+a{
+    color: #2d2e30 !important;
+    text-decoration: none !important;
+}
+#header {
+    background-color: #3582B3;
+    color: white;
+    padding: 10px 0;
+}
+.information_profile{
+    background: linear-gradient(to bottom,  #58a5e4 0%,#2b61a7 100%);
+    color: #fff;
+    /* min-height: 300px; */
+    padding: 10px;
+}
+.btn-cash {
+    color: #ffffff;
+    background: #3582b3;
+    width: 100%;
+}
+td,th {
+    font-size: 14px;
+    align-content: center !important;
+}
