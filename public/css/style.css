@@ -116,3 +116,7 @@ td,th {
     font-size: 14px;
     align-content: center !important;
 }
+
+#smartsupp-widget-container div {
+    bottom: 70px !important;
+}
