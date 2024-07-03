@@ -128,7 +128,7 @@ class ProfileController extends Controller
         ]);
 
         //check password2
-        $isValidPassword = Hash::check($request->password2, auth()->user()->password2);
+        $isValidPassword = Hash::check($request->password2, auth()->user()->password);
         if (!$isValidPassword) {
             return redirect()->back()->with('error', 'Mật khẩu giao dịch không đúng');
         }
