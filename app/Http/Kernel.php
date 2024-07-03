@@ -75,7 +75,7 @@ class Kernel extends HttpKernel
      */
     protected $commands = [
         //
-        TraThuong::class
+        'App\Console\Commands\TraThuong'
     ];
 
     /**

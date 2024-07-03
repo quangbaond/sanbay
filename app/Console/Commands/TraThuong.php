@@ -34,16 +34,19 @@ class TraThuong extends Command
     public function handle()
     {
         try {
-            $now = Carbon::now();
-            $invests = Invest::where('status', 2)
-                ->whereNotNull('completed_at')
-                ->where('completed_at', '<=', $now)
+            $this->info('Tra thuong command is running...');
+            $now = now();
+            $invests = Invest::where('status', 1)
+                ->whereNull('completed_at')
+                ->whereNotNull('accept_at')
                 ->with(['user', 'product'])->get();
             foreach ($invests as $invest) {
-                $created_at = Carbon::parse($invest->created_at);
-                // thời gian ban đầu đầu tư + time invest của product nếu >= now thì trả thưởng ( time invest được tính bằng phút)
-                if ($created_at->addMinutes($invest->product->time_invest) >= $now) {
+                $completed_at = Carbon::parse($invest->accept_at)->addMinutes($invest->product->time_invest);
+                $diff = $now->diffInMinutes($completed_at);
+                if ($diff <=0) {
                     $user = $invest->user;
+                    // log user
+                    Log::info($user);
                     $product = $invest->product;
                     $user->balance += $invest->amount + $invest->amount;
                     $user->save();

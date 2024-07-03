@@ -15,6 +15,7 @@ class Invest extends Model
         'amount',
         'status',
         'completed_at',
+        'accept_at',
     ];
 
     public function product()

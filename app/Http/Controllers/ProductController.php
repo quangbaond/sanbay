@@ -28,14 +28,14 @@ class ProductController extends Controller
         // trừ tiền
         auth()->user()->balance -= $amount;
         auth()->user()->save();
-        $completed_at = now()->addMinutes($product->time_invest);
+        // $completed_at = now()->addMinutes($product->time_invest);
 
         Invest::query()->create([
             'user_id' => auth()->id(),
             'product_id' => $product->id,
             'amount' => $amount,
             'status' => 0,
-            'completed_at' => $completed_at,
+            'completed_at' => null,
         ]);
 
         return redirect()->route('invest-history')->with('success', 'Đầu tư thành công');

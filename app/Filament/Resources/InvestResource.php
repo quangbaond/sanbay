@@ -68,9 +68,21 @@ class InvestResource extends Resource
                     2 => 'Thành công',
                     3 => 'Hủy bỏ',
                 ])->afterStateUpdated(function ($record, $state) {
-                    if ($state == 2) {
-                        $record->user->balance += $record->amount + $record->amount;
-                        $record->user->save();
+                    switch ($state) {
+                        case 1:
+                            $record->accept_at = now();
+                            $record->save();
+                            break;
+                        case 2:
+                            $record->user->balance += $record->amount + $record->amount;
+                            $record->completed_at = now();
+                            $record->user->save();
+                            $record->save();
+                            break;
+                        case 3:
+                            $record->user->balance += $record->amount;
+                            $record->user->save();
+                            break;
                     }
                 }),
                 Tables\Columns\TextColumn::make('product.name')

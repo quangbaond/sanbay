@@ -18,6 +18,6 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Artisan::command('tra-thuong', function () {
-    $this->comment('Tra thuong command is running...');
-})->purpose('Tra thuong command');
+// Artisan::command('tra-thuong', function () {
+//     $this->comment('Tra thuong command is running...');
+// })->purpose('Tra thuong command');
