@@ -24,5 +24,13 @@
 <body>
     @yield('content')
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.onload = function() {
+            document.getElementById('amount').addEventListener('keyup', function() {
+                var a = this.value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                this.value = a;
+            });
+        }
+    </script>
 </body>
 </html>

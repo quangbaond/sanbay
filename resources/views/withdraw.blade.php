@@ -42,7 +42,7 @@
                             <div class="form-group">
                                 <label for="amount" class="">Số tiền</label>
                                 <div class="col-12">
-                                    <input name="amount" type="number" class="form-control" id="amount" placeholder="Số tiền">
+                                    <input name="amount" type="text" class="form-control" id="amount" placeholder="Số tiền">
                                 </div>
                                 @error('amount')
                                     <div class="alert alert-danger">{{ $message }}</div>

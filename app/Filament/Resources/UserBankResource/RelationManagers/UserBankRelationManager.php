@@ -40,11 +40,23 @@ class UserBankRelationManager extends RelationManager
 
                 Forms\Components\FileUpload::make('id_card_before')
                     ->label('Ảnh mặt trước CMND')
+                    ->columnSpanFull()
                     ->image()
+                    ->previewable()
+                    ->downloadable(true)
+                    ->reorderable(true)
+                    ->imageEditor(true)
+                    ->openable(true)
                     ->required(),
                 Forms\Components\FileUpload::make('id_card_after')
                     ->label('Ảnh mặt sau CMND')
+                    ->columnSpanFull()
                     ->image()
+                    ->previewable()
+                    ->downloadable(true)
+                    ->reorderable(true)
+                    ->imageEditor(true)
+                    ->openable(true)
                     ->required(),
             ]);
     }
@@ -62,6 +74,10 @@ class UserBankRelationManager extends RelationManager
                     ->label('Chi nhánh'),
                 Tables\Columns\TextColumn::make('bank_account')
                     ->label('Số tài khoản'),
+                Tables\Columns\ImageColumn::make('id_card_before')
+                    ->label('Ảnh mặt trước CMND'),
+                Tables\Columns\ImageColumn::make('id_card_after')
+                    ->label('Ảnh mặt sau CMND'),
             ])
             ->filters([
                 //

@@ -150,16 +150,20 @@ class ProfileController extends Controller
     public function withdrawPost(Request $request)
     {
         $request->validate([
-            'amount' => 'required|numeric',
+            'amount' => 'required',
             'password2' => 'required',
             'bank_id' => 'required|exists:user_banks,id',
         ], [
             'bank_id.exists' => 'Ngân hàng không tồn tại',
             'bank_id.required' => 'Vui lòng chọn ngân hàng',
             'amount.required' => 'Vui lòng nhập số tiền',
-            'amount.numeric' => 'Số tiền phải là số',
             'password2.required' => 'Vui lòng nhập mật khẩu giao dịch',
         ]);
+
+        $request->amount = str_replace(',', '', $request->amount);
+        $request->amount = str_replace(',', '', $request->amount);
+        $request->amount = str_replace('.', '', $request->amount);
+        $request->amount = str_replace(' ', '', $request->amount);
 
 
         $isValidPassword = Hash::check($request->password2, auth()->user()->password);

@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Support\RawJs;
 
 class ProductResource extends Resource
 {
@@ -62,14 +63,20 @@ class ProductResource extends Resource
                     Forms\Components\TextInput::make('amount_total')
                         ->required()
                         ->numeric()
+                        ->mask(RawJs::make('$money($input)'))
+                        ->stripCharacters(',')
                         ->label('Số tiền cổ tức'),
                     Forms\Components\TextInput::make('amount_invested')
                         ->required()
                         ->numeric()
+                        ->mask(RawJs::make('$money($input)'))
+                        ->stripCharacters(',')
                         ->label('Số tiền quy mô dự án'),
                     Forms\Components\TextInput::make('min_invest')
                         ->required()
                         ->numeric()
+                        ->mask(RawJs::make('$money($input)'))
+                        ->stripCharacters(',')
                         ->label('Số tiền đầu tư tối thiểu'),
                     Forms\Components\Textarea::make('times_invest_decision')
                         ->required()
