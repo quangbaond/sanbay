@@ -1,7 +1,7 @@
 <div class="products">
     <div class="product_title">
         <div id="i"></div>
-        <span>{{ $title }}</span>
+        <span>{{ $product->name }}</span>
     </div>
     <div class="product_item my-2">
         <div class="card">
@@ -18,7 +18,7 @@
                         <p >Ngày</p>
                     </div>
                     <div class="col-6">
-                        <div><span style="color: #28a3e6; font-size: 14px">{{ $product->min_invest }}</span><span> đ</span></div>
+                        <div><span style="color: #28a3e6; font-size: 14px">{{ number_format($product->min_invest) }}</span><span> đ</span></div>
                         <p style="font-size: 14px">Số tiền đấu thầu</p>
                     </div>
                 </div>
