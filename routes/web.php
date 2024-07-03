@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 //đầu tư
 Route::get('/invest', [HomeController::class, 'invest'])->name('invest');
-Route::post('/invest', [ProductController::class, 'investPost'])->name('invest');
+Route::post('/invest', [ProductController::class, 'investPost'])->name('invest')->middleware('auth');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
 Route::get('/desposit', [HomeController::class, 'desposit'])->name('desposit')->middleware('auth');
