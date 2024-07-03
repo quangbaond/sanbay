@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Invest;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class TraThuong extends Command
 {
@@ -50,6 +51,7 @@ class TraThuong extends Command
                     $invest->completed_at = $now;
                     $invest->save();
                     // log command
+                    Log::info('Thông báo 🏗️ ' . $user->username . ' Đã trả thưởng ' . $invest->amount . 'dự án thành công' . $product->name . 'lúc: ' . $now);
                     $this->info('Thông báo 🏗️ ' . $user->username . ' Đã trả thưởng ' . $invest->amount . 'dự án thành công' . $product->name . 'lúc: ' . $now);
                 }
             }
