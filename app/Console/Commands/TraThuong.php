@@ -34,7 +34,7 @@ class TraThuong extends Command
     {
         try {
             $now = Carbon::now();
-            $invests = Invest::where('status', 1)
+            $invests = Invest::where('status', 2)
                 ->whereNotNull('completed_at')
                 ->where('completed_at', '<=', $now)
                 ->with(['user', 'product'])->get();

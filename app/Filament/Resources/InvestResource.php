@@ -64,11 +64,12 @@ class InvestResource extends Resource
                 Tables\Columns\SelectColumn::make('status')->label('Trạng thái')
                 ->options([
                     0 => 'Chờ xử lý',
-                    1 => 'Thành công',
-                    2 => 'Hủy bỏ',
+                    1 => 'xác nhận',
+                    2 => 'Thành công',
+                    3 => 'Hủy bỏ',
                 ])->afterStateUpdated(function ($record, $state) {
-                    if ($state == 1) {
-                        $record->user->balance += $record->amount;
+                    if ($state == 2) {
+                        $record->user->balance += $record->amount + $record->amount;
                         $record->user->save();
                     }
                 }),
