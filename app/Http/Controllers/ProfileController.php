@@ -116,7 +116,6 @@ class ProfileController extends Controller
             'bank_account_name.required' => 'Vui lòng nhập tên chủ tài khoản',
             'password2.required' => 'Vui lòng nhập mật khẩu giao dịch',
             'id_card.required' => 'Vui lòng nhập số CMND',
-
         ]);
 
         //check password2

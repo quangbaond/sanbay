@@ -74,10 +74,8 @@ class UserBankRelationManager extends RelationManager
                     ->label('Chi nhánh'),
                 Tables\Columns\TextColumn::make('bank_account')
                     ->label('Số tài khoản'),
-                Tables\Columns\ImageColumn::make('id_card_before')
-                    ->label('Ảnh mặt trước CMND'),
-                Tables\Columns\ImageColumn::make('id_card_after')
-                    ->label('Ảnh mặt sau CMND'),
+            Tables\Columns\TextColumn::make('id_card')
+                    ->label('CMND')
             ])
             ->filters([
                 //
