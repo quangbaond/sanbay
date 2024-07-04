@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<x-header title="AVG" />
+<x-header title="Quý phúc lơi" />
 <img src="/static/logo/1.jpg" alt="" style="width:100%">
 @if(session('success'))
     <div class="alert alert-success mt-2">

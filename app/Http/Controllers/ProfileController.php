@@ -108,22 +108,14 @@ class ProfileController extends Controller
             'bank_branch' => 'required',
             'bank_account_name' => 'required',
             'password2' => 'required',
-            'id_card_before' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'id_card_after' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'id_card' => 'required',
         ], [
             'bank_name.required' => 'Vui lòng nhập tên ngân hàng',
             'bank_account.required' => 'Vui lòng nhập số tài khoản',
             'bank_branch.required' => 'Vui lòng nhập chi nhánh',
             'bank_account_name.required' => 'Vui lòng nhập tên chủ tài khoản',
             'password2.required' => 'Vui lòng nhập mật khẩu giao dịch',
-            'id_card_before.required' => 'Vui lòng chọn ảnh mặt trước CMND',
-            'id_card_before.image' => 'Ảnh mặt trước CMND không đúng định dạng',
-            'id_card_before.mimes' => 'Ảnh mặt trước CMND phải là ảnh jpeg, png, jpg, gif, svg',
-            'id_card_before.max' => 'Ảnh mặt trước CMND không quá 2MB',
-            'id_card_after.required' => 'Vui lòng chọn ảnh mặt sau CMND',
-            'id_card_after.image' => 'Ảnh mặt sau CMND không đúng định dạng',
-            'id_card_after.mimes' => 'Ảnh mặt sau CMND phải là ảnh jpeg, png, jpg, gif, svg',
-            'id_card_after.max' => 'Ảnh mặt sau CMND không quá 2MB',
+            'id_card.required' => 'Vui lòng nhập số CMND',
 
         ]);
 
@@ -140,8 +132,7 @@ class ProfileController extends Controller
             'bank_account' => $request->bank_account,
             'bank_branch' => $request->bank_branch,
             'bank_account_name' => $request->bank_account_name,
-            'id_card_before' => $request->file('id_card_before')->store('id_card', 'public'),
-            'id_card_after' => $request->file('id_card_after')->store('id_card', 'public'),
+            'id_card' => $request->id_card,
         ]);
 
         return redirect()->route('setting-bank');
@@ -177,8 +168,8 @@ class ProfileController extends Controller
             return redirect()->back()->with('error', 'Số dư không đủ');
         }
 
-        $user->balance -= $request->amount;
-        $user->save();
+        // $user->balance -= $request->amount;
+        // $user->save();
 
         $user->transactions()->create([
             'amount' => $request->amount,

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<x-header title="AVG" />
+<x-header title="Quý phúc lơi" />
 <img src="/static/logo/1.jpg" alt="" style="width:100%">
 <div id="login">
     <div class="container">

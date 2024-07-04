@@ -31,7 +31,7 @@ class TransactionResource extends Resource
                         ->label('Số tiền')
                         ->numeric()
                         ->required(),
-                    Forms\Components\Select::make('type')
+                    Forms\Components\TextInput::make('type')
                         ->label('Phương thức')
                         ->options([
                             1 => 'Nạp tiền',
@@ -73,19 +73,31 @@ class TransactionResource extends Resource
                     ->searchable()
                     ->formatStateUsing(fn ($state) => number_format($state) . ' VND')
                     ->sortable(),
-                Tables\Columns\SelectColumn::make('type')
+            Tables\Columns\TextColumn::make('type')
                     ->label('Phương thức')
-                    ->options([
+                    ->fomatStateUsing(fn ($state) => match ($state) {
                         1 => 'Nạp tiền',
                         2 => 'Rút tiền',
-                    ])
+                    })
+                    ->disabled()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
+                Tables\Columns\SelectColumn::make('status')
                     ->label('Trạng thái')
-                    ->formatStateUsing(fn ($state) => match ($state) {
+                    // ->formatStateUsing(fn ($state) => match ($state) {
+                    //     0 => 'Chờ xử lý',
+                    //     1 => 'Thành công',
+                    //     2 => 'Thất bại',
+                    // })
+                    ->options([
                         0 => 'Chờ xử lý',
                         1 => 'Thành công',
                         2 => 'Thất bại',
+                    ])
+                    ->afterStateUpdated(function ($record, $state) {
+                        if($state == 1 && $record->type == 2) {
+                            $record->user->balance -= $record->amount;
+                            $record->user->save();
+                        }
                     })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('description')

@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('bank_branch');
             $table->string('bank_account');
             $table->string('bank_name');
-            $table->string('id_card_before');
-            $table->string('id_card_after');
+            $table->string('id_card');
             $table->tinyInteger('status')->default(1)->comment('0: inactive, 1: active');
             $table->timestamps();
         });

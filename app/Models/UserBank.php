@@ -15,8 +15,7 @@ class UserBank extends Model
         'bank_branch',
         'bank_account',
         'bank_name',
-        'id_card_before',
-        'id_card_after',
+        'id_card',
         'status',
     ];
 }

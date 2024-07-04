@@ -47,22 +47,14 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
+    <div class="form-group">
+        <label for="id_card">Mật khẩu giao dịch</label>
+        <input type="number" class="form-control" id="id_card" name="id_card">
+        @error('id_card')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
     {{-- // id_card_before --}}
-    <div class="form-group">
-        <label for="id_card_before">Ảnh mặt trước CMND</label>
-        <input type="file" class="form-control" id="id_card_before" name="id_card_before">
-        @error('id_card_before')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-    </div>
-    {{-- // id_card_after --}}
-    <div class="form-group">
-        <label for="id_card_after">Ảnh mặt sau CMND</label>
-        <input type="file" class="form-control" id="id_card_after" name="id_card_after">
-        @error('id_card_after')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-    </div>
     <button type="submit" class="btn btn-primary btn-cash my-2">Cập nhật</button>
     </form>
 </div>
