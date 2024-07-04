@@ -26,13 +26,13 @@
                 <td>{{ number_format($invest->amount) }} VND</td>
                 <td>
                     @if($invest->status == 0)
-                        <span class="badge badge-warning">Đang chờ</span>
+                        <span class="badge badge-warning" style="color: #000">Đang chờ</span>
                     @elseif($invest->status == 1)
-                        <span class="badge badge-success">Đã xác nhận</span>
+                        <span class="badge badge-success" style="color: #000">Đã xác nhận</span>
                     @elseif($invest->status == 2)
-                        <span class="badge badge-danger">Thành công</span>
+                        <span class="badge badge-danger" style="color: #000">Thành công</span>
                     @else
-                        <span class="badge badge-danger">Thất bại</span>
+                        <span class="badge badge-danger" style="color: #000">Thất bại</span>
                     @endif
                 </td>
                 <td>{{ $invest->created_at }}</td>
