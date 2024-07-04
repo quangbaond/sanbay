@@ -24,7 +24,7 @@
                 </div>
                 <div class="row justify-content-center" style="align-items: center">
                     <div class="col-8">
-                        <div>Quy mô dự án: <span style="color:#28a3e6">{{ number_format($product->amount_total) }}</span><span>đ</span></div>
+                        <div>Quy mô dự án: <span style="color:#28a3e6">{{ number_format($product->amount_invested) }}</span><span>đ</span></div>
                     </div>
                     <div class="col-4" style="text-align:right">
                         <a style="color: #fff !important" href="{{ route('product-detail', $product->slug) }}" class="btn btn-primary btn-sm">Đấu thấu</a>
