@@ -48,7 +48,7 @@ class TraThuong extends Command
                     // log user
                     Log::info($user);
                     $product = $invest->product;
-                    $user->balance += $invest->amount + $invest->amount;
+                    $user->balance += $invest->amount + $invest->product->min_invest;
                     $user->save();
                     $invest->status = 2;
                     $invest->completed_at = $now;

@@ -75,7 +75,7 @@ class TransactionResource extends Resource
                     ->sortable(),
             Tables\Columns\TextColumn::make('type')
                     ->label('Phương thức')
-                    ->fomatStateUsing(fn ($state) => match ($state) {
+                    ->formatStateUsing(fn ($state) => match ($state) {
                         1 => 'Nạp tiền',
                         2 => 'Rút tiền',
                     })

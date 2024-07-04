@@ -74,7 +74,7 @@ class InvestResource extends Resource
                             $record->save();
                             break;
                         case 2:
-                            $record->user->balance += $record->amount + $record->amount;
+                            $record->user->balance += $record->amount + $record->min_invest;
                             $record->completed_at = now();
                             $record->user->save();
                             $record->save();

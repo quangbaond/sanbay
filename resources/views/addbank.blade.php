@@ -48,7 +48,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="id_card">Mật khẩu giao dịch</label>
+        <label for="id_card">Số CCCD/CMND</label>
         <input type="number" class="form-control" id="id_card" name="id_card">
         @error('id_card')
         <div class="alert alert-danger">{{ $message }}</div>
