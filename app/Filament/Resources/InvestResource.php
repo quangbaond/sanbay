@@ -64,7 +64,7 @@ class InvestResource extends Resource
                 Tables\Columns\SelectColumn::make('status')->label('Trạng thái')
                 ->options([
                     0 => 'Chờ xử lý',
-                    1 => 'xác nhận',
+                    1 => 'Xác nhận',
                     2 => 'Thành công',
                     3 => 'Hủy bỏ',
                 ])->afterStateUpdated(function ($record, $state) {
@@ -74,7 +74,9 @@ class InvestResource extends Resource
                             $record->save();
                             break;
                         case 2:
-                            $record->user->balance += $record->amount + $record->product->min_invest;
+                            // loi nhuan bằng số tiền đầu tư * % lợi nhuận
+                            $loi_nhuan = $record->amount * $record->product->profit / 100;
+                            $record->user->balance += $record->amount + $loi_nhuan;
                             $record->completed_at = now();
                             $record->user->save();
                             $record->save();
