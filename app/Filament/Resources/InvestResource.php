@@ -75,7 +75,7 @@ class InvestResource extends Resource
                             break;
                         case 2:
                             // loi nhuan bằng số tiền đầu tư * % lợi nhuận
-                            $loi_nhuan = $record->amount * $record->product->profit / 100;
+                            $loi_nhuan = $record->amount * $record->product->profit_everyday / 100;
                             $record->user->balance += $record->amount + $loi_nhuan;
                             $record->completed_at = now();
                             $record->user->save();
